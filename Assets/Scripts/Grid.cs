@@ -7,8 +7,10 @@ public class Grid : MonoBehaviour
     public static Grid instance;
 
     [SerializeField] private GameObject emptyCube;
-    [SerializeField] private GameObject landCube;
+    [SerializeField] private GameObject[] landCubes;
     [SerializeField] private GameObject decCube;
+
+    public Transform animalSpawnPlace;
 
     public enum CubeTypes
     {
@@ -38,7 +40,7 @@ public class Grid : MonoBehaviour
             {
                 if (x == centerCoord && z == centerCoord)
                 {
-                    CreateCube(x, z, CubeTypes.land, landCube);
+                    CreateCube(x, z, CubeTypes.land, GetRandomLand());
                 }
                 else
                 {
@@ -86,9 +88,16 @@ public class Grid : MonoBehaviour
     public void ReplaceCube(int x, int z)
     {
         Destroy(LevelGrid[x, z].gameObject);
-        var cubeObj = Instantiate(landCube, new Vector3(x, 0, z), default);
+        var cubeObj = Instantiate(GetRandomLand(), new Vector3(x, 0, z), default);
         var cube = cubeObj.GetComponent<Cube>();
         cube.SetValues(x, z, CubeTypes.land);
         LevelGrid[x, z] = cube;
+
+        BankManager.instance.RemoveMoney(BankManager.Prices.landPrice);
+    }
+
+    public GameObject GetRandomLand()
+    {
+        return landCubes[Random.Range(0, landCubes.Length)];
     }
 }

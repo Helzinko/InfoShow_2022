@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1720526999102316332}
   - component: {fileID: 1720526999102316331}
+  - component: {fileID: 1246841803}
+  - component: {fileID: 1246841804}
+  - component: {fileID: 1246841805}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -43,6 +46,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486f5625f3f19f54e89b25ec0a3a30a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyCube: {fileID: 5697013249553600624, guid: 4613232b1f8cb0442b4e5fe37d653e1a, type: 3}
-  landCube: {fileID: 1993035289537697152, guid: 02bff199aa634d348809f7a5f91ce9e3, type: 3}
+  emptyCube: {fileID: 3079785493430408282, guid: 4613232b1f8cb0442b4e5fe37d653e1a, type: 3}
+  landCubes:
+  - {fileID: 1993035289537697152, guid: 02bff199aa634d348809f7a5f91ce9e3, type: 3}
+  - {fileID: 3758412092424673535, guid: c2216f2bfca9ea84781539beca81f578, type: 3}
+  - {fileID: 417463359841661607, guid: 9067c21fd8528b04d801fb4bb62a848c, type: 3}
   decCube: {fileID: 0}
+  animalSpawnPlace: {fileID: 0}
+--- !u!114 &1246841803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720526999102316330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2156a2a60d46f66429146d78e5e1a85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlacingLand: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  emptyMask:
+    serializedVersion: 2
+    m_Bits: 128
+  animalToSpawn: {fileID: 2085969226133342908, guid: 3e2792968d8d73e43a2125e872531057, type: 3}
+  isDraggingAnimal: 0
+--- !u!114 &1246841804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720526999102316330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3e573e1af4216409dde16215cf1688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 0}
+--- !u!114 &1246841805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720526999102316330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029e8feddddf92f4ea9e5fde30b76198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animals:
+  - {fileID: 2085969226133342908, guid: 3e2792968d8d73e43a2125e872531057, type: 3}
+  - {fileID: 2966653440713685353, guid: 780b5adaabbfaf54e8737a7e86087743, type: 3}
+  - {fileID: 426007715191268866, guid: fcc6a7d2ef881c44287bb53205bd724f, type: 3}

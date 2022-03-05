@@ -6,6 +6,12 @@ using TMPro;
 
 public class BankManager : MonoBehaviour
 {
+    public class Prices
+    {
+        public static int animalPrice = 50;
+        public static int landPrice = 100;
+    }
+
     public static BankManager instance;
 
     private int currentMoney = 0;
@@ -28,8 +34,27 @@ public class BankManager : MonoBehaviour
         UpdateMoneyText();
     }
 
+    public void RemoveMoney(int ammount)
+    {
+        if(ammount <= currentMoney)
+        {
+            currentMoney -= ammount;
+            UpdateMoneyText();
+        }
+    }
+
     private void UpdateMoneyText()
     {
         moneyText.text = "Money: " + currentMoney;
+    }
+
+    public bool CanBuyAnimal()
+    {
+        return (currentMoney >= Prices.animalPrice);
+    }
+
+    public bool CanBuyLand()
+    {
+        return (currentMoney >= Prices.landPrice);
     }
 }

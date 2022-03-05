@@ -20,6 +20,13 @@ public class Animal : MonoBehaviour
 
     private float originalSize;
 
+    private Vector3 screenPoint;
+    private Vector3 offset;
+
+    public int AnimalLevel = 1;
+
+    private AnimalDrag animalDrag;
+
     private void Start()
     {
         moveDistance = transform.localScale.z;
@@ -30,7 +37,10 @@ public class Animal : MonoBehaviour
 
         timeSinceLastClick = timeBetweenClicks;
 
+        animalDrag = GetComponent<AnimalDrag>();
+
         StartCoroutine(Movement());
+        StartCoroutine(MoneyPerSec());
     }
 
     private void Update()
@@ -45,16 +55,20 @@ public class Animal : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(timeBetweenMov);
-
-            if (!CheckDistance())
+            if (!animalDrag.dragging)
             {
-                bool canContinue = false;
-
-                while (!canContinue)
+                if (!CheckDistance())
                 {
-                    if (CheckDistance())
+                    bool canContinue = false;
+
+                    int stepCount = 1000;
+                    while (!canContinue && stepCount > 0)
                     {
-                        canContinue = true;
+                        stepCount--;
+                        if (CheckDistance())
+                        {
+                            canContinue = true;
+                        }
                     }
                 }
             }
@@ -83,7 +97,7 @@ public class Animal : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!GameManager.instance.isPlacingLand)
+        if (!GameManager.instance.isPlacingLand && !GameManager.instance.isDraggingAnimal)
         {
             if(timeSinceLastClick > timeBetweenClicks)
             {
@@ -100,5 +114,14 @@ public class Animal : MonoBehaviour
         transform.DOScale(originalSize * 2, animTime);
         yield return new WaitForSeconds(animTime);
         transform.DOScale(originalSize, animTime);
+    }
+
+    IEnumerator MoneyPerSec()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            BankManager.instance.AddMoney(moneyValue);
+        }
     }
 }
