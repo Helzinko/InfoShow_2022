@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3079785493430408356}
   - component: {fileID: 3079785493430408357}
   - component: {fileID: -6477521169736054710}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EmptyCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3079785493430408282}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -108,3 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a4c1dd8d836b04ab19ea44711ad5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  z: 0
+  cubeType: 0

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1993035289537697150}
   - component: {fileID: 1993035289537697151}
   - component: {fileID: 1710441299873316173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LandCube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

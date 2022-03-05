@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject placingIndicator;
 
+    public LayerMask groundMask;
+    public LayerMask emptyMask;
+
     private void Awake()
     {
         instance = this;
