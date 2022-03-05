@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
 
     public float enemySpeed = 10f;
 
+    public int animalLevelToLose = 6;
+
+    public int moneyToAdd = 1000;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,7 +27,16 @@ public class Enemy : MonoBehaviour
 
         if (animal)
         {
-            Destroy(animal.gameObject);
+            if(animal.AnimalLevel >= 6)
+            {
+                BankManager.instance.AddMoney(moneyToAdd);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(animal.gameObject);
+            }
+       
         }
     }
 }

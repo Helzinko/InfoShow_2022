@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public LayerMask groundMask;
     public LayerMask emptyMask;
 
-    public GameObject animalToSpawn;
+    public GameObject boxToSpawn;
 
     public bool isDraggingAnimal = false;
+
+    public bool canSpawnBox = true;
 
     private void Awake()
     {
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void BuyAnimal()
     {
-        if (BankManager.instance.CanBuyAnimal())
+        if (BankManager.instance.CanBuyAnimal() && canSpawnBox)
         {
             SpawnAnimal();
             BankManager.instance.RemoveMoney(BankManager.Prices.animalPrice);
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
     private void SpawnAnimal()
     {
         // debug coords
-        Instantiate(animalToSpawn, new Vector3(3, 0.62f, 3), default);
+        Instantiate(boxToSpawn, new Vector3(3, 0.5f, 3), default);
+        canSpawnBox = false;
     }
 }

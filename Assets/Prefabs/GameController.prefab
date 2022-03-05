@@ -72,8 +72,9 @@ MonoBehaviour:
   emptyMask:
     serializedVersion: 2
     m_Bits: 128
-  animalToSpawn: {fileID: 2085969226133342908, guid: 3e2792968d8d73e43a2125e872531057, type: 3}
+  boxToSpawn: {fileID: 1994869092358529340, guid: 328bdf3913828434e8c98c984c5aab2f, type: 3}
   isDraggingAnimal: 0
+  canSpawnBox: 1
 --- !u!114 &1246841804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,4 +103,9 @@ MonoBehaviour:
   animals:
   - {fileID: 2085969226133342908, guid: 3e2792968d8d73e43a2125e872531057, type: 3}
   - {fileID: 2966653440713685353, guid: 780b5adaabbfaf54e8737a7e86087743, type: 3}
-  - {fileID: 426007715191268866, guid: fcc6a7d2ef881c44287bb53205bd724f, type: 3}
+  - {fileID: 5304692214129836483, guid: 1814e18616fcae242bf7ffcb7eea82df, type: 3}
+  - {fileID: 1551184651857627346, guid: 6780dcc9799ca2442bab31f48dd15509, type: 3}
+  - {fileID: 5274094242991525573, guid: e5e35a4dda565624e98f0f8e1e9eda0e, type: 3}
+  - {fileID: 4925886498324897676, guid: 4ca05e05a7a1ac44ba73c8ac14bc4feb, type: 3}
+  - {fileID: 8564794211717110091, guid: d25aee4bd2c772e4e9428ca34d3743ed, type: 3}
+  - {fileID: 1192457944403112447, guid: 8292b9e4041522947b8785aa5092aeaa, type: 3}

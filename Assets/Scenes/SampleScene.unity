@@ -13074,10 +13074,6 @@ PrefabInstance:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 2001960401}
-    - target: {fileID: 1246841805, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: animals.Array.data[2]
-      value: 
-      objectReference: {fileID: 5304692214129836483, guid: 1814e18616fcae242bf7ffcb7eea82df, type: 3}
     - target: {fileID: 1720526999102316330, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: m_Name
       value: GameController
