@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 6
   animalLevelToLose: 6
-  moneyToAdd: 1000
+  moneyToAdd: 200
 --- !u!54 &4692605224858748291
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -80,13 +80,6 @@ public class GameManager : MonoBehaviour
         {
             PauseMenu.instance.Restart();
         }
-
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            BankManager.instance.AddMoney(100);
-        }
-#endif
     }
 
     private void SpawnAnimal()
@@ -99,12 +92,14 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject StartText;
+    [SerializeField] private GameObject RandomTip;
     private bool firstBox = true;
     public void CheckIfFirstBox()
     {
         if (firstBox)
         {
             StartText.SetActive(false);
+            RandomTip.SetActive(false);
             firstBox = false;
         }
     }
