@@ -75,6 +75,8 @@ MonoBehaviour:
   boxToSpawn: {fileID: 1994869092358529340, guid: 328bdf3913828434e8c98c984c5aab2f, type: 3}
   isDraggingAnimal: 0
   canSpawnBox: 1
+  boxSpawnParticle: {fileID: 3935641551801005689, guid: 1ca15bf20a04bf6448fdac0a3afb60ff, type: 3}
+  currentBoxLevel: 0
 --- !u!114 &1246841804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +111,7 @@ MonoBehaviour:
   - {fileID: 4925886498324897676, guid: 4ca05e05a7a1ac44ba73c8ac14bc4feb, type: 3}
   - {fileID: 8564794211717110091, guid: d25aee4bd2c772e4e9428ca34d3743ed, type: 3}
   - {fileID: 1192457944403112447, guid: 8292b9e4041522947b8785aa5092aeaa, type: 3}
+  mergeParticle: {fileID: 5971687693222526803, guid: 754b9f77c51e9dd458a17d33aedad58c, type: 3}
+  deathParticlearticle: {fileID: 4273796035701737986, guid: f2658c905f4d42940b3dc246b7c0d249, type: 3}
+  popupText: {fileID: 3756524329521064943, guid: 5d5054a36b02ba14989ed23de48c1cdc, type: 3}
+  cameraHolder: {fileID: 0}

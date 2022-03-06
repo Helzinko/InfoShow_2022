@@ -11,6 +11,8 @@ public class AnimalDrag : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.instance.isPaused) return;
+
         if (dragging)//_drag == null &&
         {
             Transform draggingObject = transform;
@@ -32,11 +34,15 @@ public class AnimalDrag : MonoBehaviour
     }
     void OnMouseDown()
     {
+        if (PauseMenu.instance.isPaused) return;
+
         dragging = true;
     }
 
     void OnMouseUp()
     {
+        if (PauseMenu.instance.isPaused) return;
+
         dragging = false;
 
         if (isTouchingAnotherAnimal())
@@ -44,6 +50,8 @@ public class AnimalDrag : MonoBehaviour
 
         if (!IsGrounded())
         {
+            GameManager.instance.CheckBirdCount(1);
+            Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
             Destroy(gameObject);
         }
     }
@@ -67,9 +75,11 @@ public class AnimalDrag : MonoBehaviour
                 if (animal != thisAnimal && animal.AnimalLevel == thisAnimal.AnimalLevel)
                 {
                     Instantiate(AnimalSpawner.instance.GetAnimal(thisAnimal.AnimalLevel++), obj.transform.position, default);
+                    Destroy(Instantiate(AnimalSpawner.instance.mergeParticle, transform.position, default), 1f);
 
                     Destroy(obj.gameObject);
                     Destroy(gameObject);
+
 
                     return true;
                 }

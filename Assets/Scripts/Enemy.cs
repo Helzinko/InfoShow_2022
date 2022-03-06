@@ -29,14 +29,16 @@ public class Enemy : MonoBehaviour
         {
             if(animal.AnimalLevel >= 6)
             {
+                Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
                 BankManager.instance.AddMoney(moneyToAdd);
                 Destroy(gameObject);
             }
             else
             {
+                GameManager.instance.CheckBirdCount(1);
+                Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, animal.gameObject.transform.position, default), 1f);
                 Destroy(animal.gameObject);
-            }
-       
+            } 
         }
     }
 }

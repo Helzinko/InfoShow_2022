@@ -97,12 +97,15 @@ public class Animal : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (PauseMenu.instance.isPaused) return;
+
         if (!GameManager.instance.isPlacingLand && !GameManager.instance.isDraggingAnimal)
         {
             if(timeSinceLastClick > timeBetweenClicks)
             {
                 BankManager.instance.AddMoney(moneyValue);
                 StartCoroutine(ClickedAnimation());
+                ShowPopupText();
                 timeSinceLastClick = 0;
             }
         }
@@ -122,6 +125,14 @@ public class Animal : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             BankManager.instance.AddMoney(moneyValue);
+
+            ShowPopupText();
         }
+    }
+
+    private void ShowPopupText()
+    {
+        GameObject floatingText = Instantiate(AnimalSpawner.instance.popupText, transform.position, Quaternion.identity);
+        floatingText.GetComponent<PopupText>().displayText = "+" + moneyValue;
     }
 }

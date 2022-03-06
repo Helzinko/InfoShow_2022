@@ -17,6 +17,14 @@ public class GameManager : MonoBehaviour
 
     public bool canSpawnBox = true;
 
+    [SerializeField] private GameObject boxSpawnParticle;
+
+    [SerializeField] private GameObject gameOverText;
+
+    public int currentBoxLevel = 0;
+
+    public bool playerLost = false;
+
     private void Awake()
     {
         instance = this;
@@ -51,8 +59,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BuyUpgrade()
+    {
+        if (BankManager.instance.CanUpgradeBox())
+        {
+            currentBoxLevel++;
+            BankManager.instance.RemoveMoney(BankManager.Prices.boxUpradePrice);
+        }
+    }
+
     private void Update()
     {
+        if(playerLost && Input.GetKeyDown(KeyCode.Return))
+        {
+            PauseMenu.instance.Restart();
+        }
+
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -65,6 +87,30 @@ public class GameManager : MonoBehaviour
     {
         // debug coords
         Instantiate(boxToSpawn, new Vector3(3, 0.5f, 3), default);
+        Destroy(Instantiate(boxSpawnParticle, new Vector3(3, 0.5f, 3), default), 1f);
         canSpawnBox = false;
+    }
+
+    [SerializeField] private GameObject StartText;
+    private bool firstBox = true;
+    public void CheckIfFirstBox()
+    {
+        if (firstBox)
+        {
+            StartText.SetActive(false);
+            firstBox = false;
+        }
+    }
+
+    public void CheckBirdCount(int minus = 0)
+    {
+        var birds = FindObjectsOfType<Animal>();
+
+        if(birds.Length - minus == 0)
+        {
+            PauseMenu.instance.gameplayUI.SetActive(false);
+            gameOverText.SetActive(true);
+            playerLost = true;
+        }
     }
 }

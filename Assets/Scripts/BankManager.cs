@@ -9,7 +9,8 @@ public class BankManager : MonoBehaviour
     public class Prices
     {
         public static int animalPrice = 50;
-        public static int landPrice = 100;
+        public static int landPrice = 200;
+        public static int boxUpradePrice = 500;
     }
 
     public static BankManager instance;
@@ -45,7 +46,7 @@ public class BankManager : MonoBehaviour
 
     private void UpdateMoneyText()
     {
-        moneyText.text = "Money: " + currentMoney;
+        moneyText.text = "Coins: " + currentMoney;
     }
 
     public bool CanBuyAnimal()
@@ -56,5 +57,10 @@ public class BankManager : MonoBehaviour
     public bool CanBuyLand()
     {
         return (currentMoney >= Prices.landPrice);
+    }
+
+    public bool CanUpgradeBox()
+    {
+        return (currentMoney >= Prices.boxUpradePrice);
     }
 }
