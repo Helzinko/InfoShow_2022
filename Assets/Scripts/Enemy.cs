@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
             {
                 GameManager.instance.CheckBirdCount(1);
                 Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, animal.gameObject.transform.position, default), 1f);
+                GameManager.instance.hurtSource.Play();
                 Destroy(animal.gameObject);
             } 
         }

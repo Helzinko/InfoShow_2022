@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
     public int currentBoxLevel = 0;
 
     public bool playerLost = false;
+
+    public AudioSource hurtSource;
+    public AudioSource mergeSource;
+    public AudioSource boxBuySource;
+    public AudioSource boxOpenSource;
 
     private void Awake()
     {
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour
         // debug coords
         Instantiate(boxToSpawn, new Vector3(3, 0.5f, 3), default);
         Destroy(Instantiate(boxSpawnParticle, new Vector3(3, 0.5f, 3), default), 1f);
+        boxBuySource.Play();
         canSpawnBox = false;
     }
 

@@ -52,6 +52,7 @@ public class AnimalDrag : MonoBehaviour
         {
             GameManager.instance.CheckBirdCount(1);
             Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
+            GameManager.instance.hurtSource.Play();
             Destroy(gameObject);
         }
     }
@@ -74,12 +75,14 @@ public class AnimalDrag : MonoBehaviour
             {
                 if (animal != thisAnimal && animal.AnimalLevel == thisAnimal.AnimalLevel)
                 {
+                    AnimalSpawner.instance.CheckRecord(thisAnimal.AnimalLevel);
                     Instantiate(AnimalSpawner.instance.GetAnimal(thisAnimal.AnimalLevel++), obj.transform.position, default);
                     Destroy(Instantiate(AnimalSpawner.instance.mergeParticle, transform.position, default), 1f);
 
                     Destroy(obj.gameObject);
                     Destroy(gameObject);
 
+                    GameManager.instance.mergeSource.Play();
 
                     return true;
                 }
