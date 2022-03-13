@@ -11,6 +11,7 @@ public enum SoundTypes
     bird_move = 5,
     bird_punch = 6,
     eagle_spawn = 7,
+    ui_error = 8,
 }
 
 [Serializable]

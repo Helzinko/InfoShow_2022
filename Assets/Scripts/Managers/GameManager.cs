@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
             {
                 isPlacingLand = !isPlacingLand;
             }
+            else
+            {
+                SoundManager.instance.PlayEffect(SoundTypes.ui_error);
+            }
         }
     }
 
@@ -60,6 +64,10 @@ public class GameManager : MonoBehaviour
             SpawnAnimal();
             BankManager.instance.RemoveMoney(BankManager.Prices.animalPrice);
         }
+        else
+        {
+            SoundManager.instance.PlayEffect(SoundTypes.ui_error);
+        }
     }
 
     public void BuyUpgrade()
@@ -68,6 +76,10 @@ public class GameManager : MonoBehaviour
         {
             currentBoxLevel++;
             BankManager.instance.RemoveMoney(BankManager.Prices.boxUpradePrice);
+        }
+        else
+        {
+            SoundManager.instance.PlayEffect(SoundTypes.ui_error);
         }
     }
 

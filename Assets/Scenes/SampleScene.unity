@@ -17007,28 +17007,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1720527000003089634, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: _musicSource
-      value: 
-      objectReference: {fileID: 6162198632775636237, guid: 8dac532abd9f7c24299361e6b450dab6, type: 3}
-    - target: {fileID: 1720527000003089634, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: _effectSource
-      value: 
-      objectReference: {fileID: 6162198632775636237, guid: 2f014e734f010964f9e007c6c744e5b0, type: 3}
-    - target: {fileID: 6729840710331201783, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: mixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 44c83f957e610d144be39ee62eacb66c, type: 2}
-    - target: {fileID: 6729840710331201783, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: sfxMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 44c83f957e610d144be39ee62eacb66c, type: 2}
-    - target: {fileID: 6729840710331201783, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: musicMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 44c83f957e610d144be39ee62eacb66c, type: 2}
-    m_RemovedComponents:
-    - {fileID: 705279700582368263, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
 --- !u!1001 &4532377352402094285
 PrefabInstance:
