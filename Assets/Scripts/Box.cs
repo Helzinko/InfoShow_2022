@@ -12,7 +12,7 @@ public class Box : MonoBehaviour
 
         GameManager.instance.CheckIfFirstBox();
 
-        GameManager.instance.boxOpenSource.Play();
+        SoundManager.instance.PlayEffect(SoundTypes.box_open);
 
         Destroy(Instantiate(openParticle, transform.position, default), 1f);
         Instantiate(AnimalSpawner.instance.GetAnimal(GameManager.instance.currentBoxLevel), new Vector3(3, 0.62f, 3), default);

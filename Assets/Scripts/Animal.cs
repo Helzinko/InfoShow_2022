@@ -27,9 +27,6 @@ public class Animal : MonoBehaviour
 
     private AnimalDrag animalDrag;
 
-    public AudioSource walkSource;
-    public AudioSource punchSource;
-
     private void Start()
     {
         moveDistance = transform.localScale.z;
@@ -86,7 +83,7 @@ public class Animal : MonoBehaviour
         {
             transform.LookAt(dir);
             transform.DOMove(dir, movSpeed);
-            walkSource.Play();
+            SoundManager.instance.PlayEffect(SoundTypes.bird_move);
             return true;
         }
 
@@ -111,7 +108,7 @@ public class Animal : MonoBehaviour
                 StartCoroutine(ClickedAnimation());
                 ShowPopupText();
                 timeSinceLastClick = 0;
-                punchSource.Play();
+                SoundManager.instance.PlayEffect(SoundTypes.bird_punch);
             }
         }
     }

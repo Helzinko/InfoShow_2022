@@ -26,11 +26,6 @@ public class GameManager : MonoBehaviour
 
     public bool playerLost = false;
 
-    public AudioSource hurtSource;
-    public AudioSource mergeSource;
-    public AudioSource boxBuySource;
-    public AudioSource boxOpenSource;
-
     private void Awake()
     {
         instance = this;
@@ -39,6 +34,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SpawnAnimal();
+
+        SoundManager.instance.PlayMusic(SoundTypes.music);
     }
 
     public void StartPlacingLand()
@@ -87,7 +84,7 @@ public class GameManager : MonoBehaviour
         // debug coords
         Instantiate(boxToSpawn, new Vector3(3, 0.5f, 3), default);
         Destroy(Instantiate(boxSpawnParticle, new Vector3(3, 0.5f, 3), default), 1f);
-        boxBuySource.Play();
+        SoundManager.instance.PlayEffect(SoundTypes.box_buy);
         canSpawnBox = false;
     }
 

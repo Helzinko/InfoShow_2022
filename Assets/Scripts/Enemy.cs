@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
         rb.velocity = -Vector3.right * enemySpeed;
 
         Destroy(gameObject, 15f);
+
+        SoundManager.instance.PlayEffect(SoundTypes.eagle_spawn);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
             {
                 GameManager.instance.CheckBirdCount(1);
                 Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, animal.gameObject.transform.position, default), 1f);
-                GameManager.instance.hurtSource.Play();
+                SoundManager.instance.PlayEffect(SoundTypes.bird_hurt);
                 Destroy(animal.gameObject);
             } 
         }
