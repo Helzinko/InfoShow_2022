@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
             PauseMenu.instance.gameplayUI.SetActive(false);
             gameOverText.SetActive(true);
             playerLost = true;
+            SoundManager.instance.PlayEffect(SoundTypes.game_over);
         }
     }
 }
