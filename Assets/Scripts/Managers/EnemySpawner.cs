@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance;
+
     [SerializeField] private Transform[] spawns;
 
     [SerializeField] private GameObject enemyPrefab;
 
     public float spawnTime = 10f;
 
-    private void Start()
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void StartSpawning()
     {
         StartCoroutine(EnemySpawn());
     }
