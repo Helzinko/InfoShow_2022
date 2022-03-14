@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
 
     public int moneyToAdd = 1000;
 
+    private bool canMove = false;
+    private Vector3 moveDir;
+
     private void OnTriggerEnter(Collider other)
     {
         var animal = other.GetComponent<Animal>();
@@ -37,8 +40,16 @@ public class Enemy : MonoBehaviour
     public void Move(Vector3 direction)
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = direction * enemySpeed;
+        moveDir = direction;
+        canMove = true;
         Destroy(gameObject, 15f);
         SoundManager.instance.PlayEffect(SoundTypes.eagle_spawn);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!canMove) return;
+
+        rb.velocity = moveDir * enemySpeed * Time.deltaTime;
     }
 }

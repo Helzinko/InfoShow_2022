@@ -13,7 +13,7 @@ public class CameraControls : MonoBehaviour
         transform.position = new Vector3(Grid.instance.gridXLenght / 2, 0, Grid.instance.gridZLenght / 2);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         var inputRot = Input.GetAxis("Horizontal");
 

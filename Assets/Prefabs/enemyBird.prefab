@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727b988c96a45ed4e9098b8511127f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 6
+  enemySpeed: 300
   animalLevelToLose: 6
   moneyToAdd: 200
 --- !u!54 &4692605224858748291
