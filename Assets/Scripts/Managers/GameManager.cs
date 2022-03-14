@@ -70,6 +70,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BuyTrap()
+    {
+        if (BankManager.instance.CanBuyTrap())
+        {
+            print("Start placing trap");
+            //BankManager.instance.RemoveMoney(BankManager.Prices.animalPrice);
+        }
+        else
+        {
+            SoundManager.instance.PlayEffect(SoundTypes.ui_error);
+        }
+    }
+
     public void BuyUpgrade()
     {
         if (BankManager.instance.CanUpgradeBox())
