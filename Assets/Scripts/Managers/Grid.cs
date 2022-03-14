@@ -19,10 +19,10 @@ public class Grid : MonoBehaviour
         decorative = 2,
     }
 
-    [SerializeField] public static int gridXLenght = 7;
-    [SerializeField] public static int gridZLenght = 7;
+    [SerializeField] public int gridXLenght = 7;
+    [SerializeField] public int gridZLenght = 7;
 
-    public static int centerCoord;
+    public int centerCoord;
 
     private static Cube[,] LevelGrid;
 

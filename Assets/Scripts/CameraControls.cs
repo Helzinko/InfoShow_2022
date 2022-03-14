@@ -10,7 +10,7 @@ public class CameraControls : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(Grid.gridXLenght / 2, 0, Grid.gridZLenght / 2);
+        transform.position = new Vector3(Grid.instance.gridXLenght / 2, 0, Grid.instance.gridZLenght / 2);
     }
 
     private void Update()

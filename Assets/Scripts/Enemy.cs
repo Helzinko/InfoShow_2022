@@ -12,17 +12,6 @@ public class Enemy : MonoBehaviour
 
     public int moneyToAdd = 1000;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-
-        rb.velocity = -Vector3.right * enemySpeed;
-
-        Destroy(gameObject, 15f);
-
-        SoundManager.instance.PlayEffect(SoundTypes.eagle_spawn);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         var animal = other.GetComponent<Animal>();
@@ -43,5 +32,13 @@ public class Enemy : MonoBehaviour
                 Destroy(animal.gameObject);
             } 
         }
+    }
+
+    public void Move(Vector3 direction)
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.velocity = direction * enemySpeed;
+        Destroy(gameObject, 15f);
+        SoundManager.instance.PlayEffect(SoundTypes.eagle_spawn);
     }
 }

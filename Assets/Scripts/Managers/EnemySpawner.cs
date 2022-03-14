@@ -12,9 +12,26 @@ public class EnemySpawner : MonoBehaviour
 
     public float spawnTime = 10f;
 
+    private float passedTime = 0;
+    public float timeBetweenIncrease = 60f;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (spawnTime < 4)
+            return;
+
+        passedTime += Time.deltaTime;
+
+        if (passedTime > timeBetweenIncrease)
+        {
+            passedTime = 0;
+            spawnTime--;
+        }
     }
 
     public void StartSpawning()
@@ -28,24 +45,28 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnTime);
 
-            var enemy = Instantiate(enemyPrefab, spawns[Random.Range(0, spawns.Length)]);
+            var currentSpawn = spawns[Random.Range(0, spawns.Length)];
+            var enemy = Instantiate(enemyPrefab, currentSpawn.transform.position, default);
+            float randomAddjust = Random.Range(-Grid.instance.centerCoord, Grid.instance.centerCoord);
+
+            Vector3 direction;
+
+            // left or right
+            if (Mathf.Abs(currentSpawn.position.x) > Grid.instance.gridXLenght)
+            {
+                enemy.transform.position += new Vector3(0, 0, randomAddjust);
+                direction = -Vector3.right * Mathf.Sign(currentSpawn.position.x);
+                enemy.transform.LookAt(new Vector3(1, 0, enemy.transform.position.z));
+            }
+            else // front or back
+            {
+                enemy.transform.position += new Vector3(randomAddjust, 0, 0);
+                direction = -Vector3.forward * Mathf.Sign(currentSpawn.position.z);
+                enemy.transform.LookAt(new Vector3(enemy.transform.position.x, 0, 1));
+            }
+
+            enemy.GetComponent<Enemy>().Move(direction);
         }
     }
 
-    private float passedTime = 0;
-    public float timeBetweenIncrease = 60f;
-
-    private void Update()
-    {
-        if (spawnTime < 4)
-            return;
-
-        passedTime += Time.deltaTime;
-
-        if(passedTime > timeBetweenIncrease)
-        {
-            passedTime = 0;
-            spawnTime--;
-        }
-    }
 }
