@@ -46,10 +46,10 @@ public class Enemy : MonoBehaviour
         SoundManager.instance.PlayEffect(SoundTypes.eagle_spawn);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!canMove) return;
 
-        rb.velocity = moveDir * enemySpeed * Time.deltaTime;
+        transform.position += moveDir * enemySpeed * Time.deltaTime;
     }
 }
