@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         SpawnAnimal();
 
-        SoundManager.instance.PlayMusic(SoundTypes.music);
+        SoundManager.instance.PlayMusic(GameType.SoundTypes.music);
     }
 
     public void StartPlacingLand()
@@ -46,13 +46,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (BankManager.instance.CanBuyLand())
+            if (BankManager.instance.CanBuyLand() && !ObjectManager.instance.isPlacingObject)
             {
                 isPlacingLand = !isPlacingLand;
             }
             else
             {
-                SoundManager.instance.PlayEffect(SoundTypes.ui_error);
+                SoundManager.instance.PlayEffect(GameType.SoundTypes.ui_error);
             }
         }
     }
@@ -66,20 +66,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SoundManager.instance.PlayEffect(SoundTypes.ui_error);
-        }
-    }
-
-    public void BuyTrap()
-    {
-        if (BankManager.instance.CanBuyTrap())
-        {
-            print("Start placing trap");
-            //BankManager.instance.RemoveMoney(BankManager.Prices.animalPrice);
-        }
-        else
-        {
-            SoundManager.instance.PlayEffect(SoundTypes.ui_error);
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.ui_error);
         }
     }
 
@@ -92,7 +79,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SoundManager.instance.PlayEffect(SoundTypes.ui_error);
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.ui_error);
         }
     }
 
@@ -109,7 +96,7 @@ public class GameManager : MonoBehaviour
         // debug coords
         Instantiate(boxToSpawn, new Vector3(3, 0.5f, 3), default);
         Destroy(Instantiate(boxSpawnParticle, new Vector3(3, 0.5f, 3), default), 1f);
-        SoundManager.instance.PlayEffect(SoundTypes.box_buy);
+        SoundManager.instance.PlayEffect(GameType.SoundTypes.box_buy);
         canSpawnBox = false;
     }
 
@@ -136,7 +123,7 @@ public class GameManager : MonoBehaviour
             PauseMenu.instance.gameplayUI.SetActive(false);
             gameOverText.SetActive(true);
             playerLost = true;
-            SoundManager.instance.PlayEffect(SoundTypes.game_over);
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.game_over);
         }
     }
 }

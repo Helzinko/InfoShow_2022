@@ -11,7 +11,6 @@ public class BankManager : MonoBehaviour
         public static int animalPrice = 50;
         public static int landPrice = 200;
         public static int boxUpradePrice = 1000;
-        public static int trapPrice = 500;
     }
 
     public static BankManager instance;
@@ -65,8 +64,8 @@ public class BankManager : MonoBehaviour
         return (currentMoney >= Prices.boxUpradePrice);
     }
 
-    public bool CanBuyTrap()
+    public bool CanBuyObject(int price)
     {
-        return (currentMoney >= Prices.trapPrice);
+        return (currentMoney >= price);
     }
 }

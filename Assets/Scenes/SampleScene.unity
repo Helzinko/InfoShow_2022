@@ -12580,6 +12580,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5359578720566431642, guid: af800df1b80b38a449700a08bd5405e2, type: 3}
   m_PrefabInstance: {fileID: 2132374457}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135667894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5549304705727092524, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+  m_PrefabInstance: {fileID: 1720527000003089632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f78721c4c8408a489c85ca3640620c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1720527000003089632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12797,12 +12808,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1695538046}
     - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1246841803}
+      objectReference: {fileID: 2135667894}
     - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyTrap
+      value: BuyObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObjectManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: e3d507ea46367bc458953f7223fea509, type: 2}
+    - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: ObjectSO, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}

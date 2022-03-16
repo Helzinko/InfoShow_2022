@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
             {
                 GameManager.instance.CheckBirdCount(1);
                 Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, animal.gameObject.transform.position, default), 1f);
-                SoundManager.instance.PlayEffect(SoundTypes.bird_hurt);
+                SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
                 Destroy(animal.gameObject);
             } 
         }
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         moveDir = direction;
         canMove = true;
         Destroy(gameObject, 15f);
-        SoundManager.instance.PlayEffect(SoundTypes.eagle_spawn);
+        SoundManager.instance.PlayEffect(GameType.SoundTypes.eagle_spawn);
     }
 
     private void Update()

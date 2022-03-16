@@ -4,5 +4,18 @@ using UnityEngine;
 
 public class LandCube : Cube
 {
-    public Transform spawnPlace;
+    public GameObject placingIndicator;
+
+    public bool isFull = false;
+
+    private void Start()
+    {
+        ShowPlacingIndication(false);
+    }
+
+    public void ShowPlacingIndication(bool active)
+    {
+        placingIndicator.SetActive(active);
+    }
+
 }

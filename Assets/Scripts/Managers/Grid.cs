@@ -24,7 +24,7 @@ public class Grid : MonoBehaviour
 
     public int centerCoord;
 
-    private static Cube[,] LevelGrid;
+    public Cube[,] LevelGrid;
 
     private void Awake()
     {
@@ -99,5 +99,21 @@ public class Grid : MonoBehaviour
     public GameObject GetRandomLand()
     {
         return landCubes[Random.Range(0, landCubes.Length)];
+    }
+
+    public void TogglePlacingIndicators(bool active)
+    {
+        for (int x = 0; x < gridXLenght; x++)
+        {
+            for (int z = 0; z < gridZLenght; z++)
+            {
+                var landCube = LevelGrid[x, z].GetComponent<LandCube>();
+                if (landCube)
+                {
+                    if(!landCube.isFull)
+                        landCube.ShowPlacingIndication(active);
+                }
+            }
+        }
     }
 }

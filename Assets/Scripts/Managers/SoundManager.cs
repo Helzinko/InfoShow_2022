@@ -1,25 +1,10 @@
 using System;
 using UnityEngine;
 
-public enum SoundTypes
-{
-    music = 0,
-    bird_hurt = 1,
-    bird_merge = 2,
-    box_buy = 3,
-    box_open = 4,
-    bird_move = 5,
-    bird_punch = 6,
-    eagle_spawn = 7,
-    ui_error = 8,
-    place_land = 9,
-    game_over = 10,
-}
-
 [Serializable]
 public class Sound
 {
-    public SoundTypes type;
+    public GameType.SoundTypes type;
     public AudioClip clip;
 }
 
@@ -46,7 +31,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayEffect(SoundTypes clip)
+    public void PlayEffect(GameType.SoundTypes clip)
     {
         var sound = Instantiate(_effectSource, transform);
         var audioClip = FindClip(clip, soundsSo.sounds);
@@ -54,7 +39,7 @@ public class SoundManager : MonoBehaviour
         Destroy(sound, audioClip.length);
     }
 
-    public void PlayMusic(SoundTypes clip)
+    public void PlayMusic(GameType.SoundTypes clip)
     {
         var sound = Instantiate(_musicSource, transform);
         var audioClip = FindClip(clip, soundsSo.sounds);
@@ -67,7 +52,7 @@ public class SoundManager : MonoBehaviour
         music.Play();
     }
 
-    private AudioClip FindClip(SoundTypes clip, Sound[] sounds)
+    private AudioClip FindClip(GameType.SoundTypes clip, Sound[] sounds)
     {
         foreach (var sound in sounds)
         {

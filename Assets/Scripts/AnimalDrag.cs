@@ -52,7 +52,7 @@ public class AnimalDrag : MonoBehaviour
         {
             GameManager.instance.CheckBirdCount(1);
             Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
-            SoundManager.instance.PlayEffect(SoundTypes.bird_hurt);
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
             Destroy(gameObject);
         }
     }
@@ -82,7 +82,7 @@ public class AnimalDrag : MonoBehaviour
                     Destroy(obj.gameObject);
                     Destroy(gameObject);
 
-                    SoundManager.instance.PlayEffect(SoundTypes.bird_merge);
+                    SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_merge);
 
                     return true;
                 }

@@ -83,7 +83,7 @@ public class Animal : MonoBehaviour
         {
             transform.LookAt(dir);
             transform.DOMove(dir, movSpeed);
-            SoundManager.instance.PlayEffect(SoundTypes.bird_move);
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_move);
             return true;
         }
 
@@ -108,7 +108,7 @@ public class Animal : MonoBehaviour
                 StartCoroutine(ClickedAnimation());
                 ShowPopupText();
                 timeSinceLastClick = 0;
-                SoundManager.instance.PlayEffect(SoundTypes.bird_punch);
+                SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_punch);
             }
         }
     }
