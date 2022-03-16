@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1554c86fbd6c145a1a463d0e4a2945, type: 3}
+  m_Name: 6
+  m_EditorClassIdentifier: 
+  level: 6
+  cointPerSecond: 6
+  prefab: {fileID: 4925886498324897676, guid: 4ca05e05a7a1ac44ba73c8ac14bc4feb, type: 3}
+  canKillEnemy: 1
+  birdImage: {fileID: 21300000, guid: 4ff49c6a6047cf9468c6392ca5f0a7e4, type: 3}

@@ -10,12 +10,6 @@ public class Animal : MonoBehaviour
     private float moveDistance;
     private float checkRadius;
 
-    public float movSpeed = 0.3f;
-    public float timeBetweenMov = 2.0f;
-
-    public int moneyValue = 1;
-
-    public float timeBetweenClicks = 1f;
     private float timeSinceLastClick = 0;
 
     private float originalSize;
@@ -23,9 +17,13 @@ public class Animal : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
 
-    public int AnimalLevel = 1;
-
     private AnimalDrag animalDrag;
+
+    private Vector3 checkDir;
+
+    private int level = 1;
+    private int coinsPerSecond = 1;
+    private bool canKillEnemy = false;
 
     private void Start()
     {
@@ -35,7 +33,7 @@ public class Animal : MonoBehaviour
 
         checkRadius = moveDistance / 5;
 
-        timeSinceLastClick = timeBetweenClicks;
+        timeSinceLastClick = AnimalManager.instance.timeBetweenClicks;
 
         animalDrag = GetComponent<AnimalDrag>();
 
@@ -48,13 +46,11 @@ public class Animal : MonoBehaviour
         timeSinceLastClick += Time.deltaTime;
     }
 
-    private Vector3 checkDir;
-
     IEnumerator Movement()
     {
         while (true)
         {
-            yield return new WaitForSeconds(timeBetweenMov);
+            yield return new WaitForSeconds(AnimalManager.instance.timeBetweenMov);
             if (!animalDrag.dragging)
             {
                 if (!CheckDistance())
@@ -82,7 +78,7 @@ public class Animal : MonoBehaviour
         if (Physics.CheckSphere(checkDir, checkRadius, GameManager.instance.groundMask) && !Physics.CheckSphere(checkDir, checkRadius, GameManager.instance.emptyMask))
         {
             transform.LookAt(dir);
-            transform.DOMove(dir, movSpeed);
+            transform.DOMove(dir, AnimalManager.instance.movSpeed);
             SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_move);
             return true;
         }
@@ -102,9 +98,9 @@ public class Animal : MonoBehaviour
 
         if (!GameManager.instance.isPlacingLand && !GameManager.instance.isDraggingAnimal)
         {
-            if(timeSinceLastClick > timeBetweenClicks)
+            if(timeSinceLastClick > AnimalManager.instance.timeBetweenClicks)
             {
-                BankManager.instance.AddMoney(moneyValue);
+                BankManager.instance.AddMoney(coinsPerSecond);
                 StartCoroutine(ClickedAnimation());
                 ShowPopupText();
                 timeSinceLastClick = 0;
@@ -126,7 +122,7 @@ public class Animal : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            BankManager.instance.AddMoney(moneyValue);
+            BankManager.instance.AddMoney(coinsPerSecond);
 
             ShowPopupText();
         }
@@ -135,6 +131,23 @@ public class Animal : MonoBehaviour
     private void ShowPopupText()
     {
         GameObject floatingText = Instantiate(AnimalSpawner.instance.popupText, transform.position, Quaternion.identity);
-        floatingText.GetComponent<PopupText>().displayText = "+" + moneyValue;
+        floatingText.GetComponent<PopupText>().displayText = "+" + coinsPerSecond;
+    }
+
+    public int GetLevel()
+    {
+        return level;
+    }
+
+    public bool CanKillEnemy()
+    {
+        return canKillEnemy;
+    }
+
+    public void SetupAnimal(int level, int coinsPerSecond, bool canKillEnemy)
+    {
+        this.level = level;
+        this.coinsPerSecond = coinsPerSecond;
+        this.canKillEnemy = canKillEnemy;
     }
 }

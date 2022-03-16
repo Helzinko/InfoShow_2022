@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &428568815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 428568816}
+  - component: {fileID: 428568817}
+  - component: {fileID: 4861356897891046626}
+  m_Layer: 0
+  m_Name: AnimalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428568816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428568815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1720526999102316332}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428568817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428568815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029e8feddddf92f4ea9e5fde30b76198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animals:
+  - {fileID: 11400000, guid: a6a43660dad1bf1488e724083919dc52, type: 2}
+  - {fileID: 11400000, guid: 3b816904d8c8a1a46a18156497a19827, type: 2}
+  - {fileID: 11400000, guid: cc224259eb83dc34ca57cc8ccfdaacf6, type: 2}
+  - {fileID: 11400000, guid: a942866c5c5d67f4085c94396aca2e21, type: 2}
+  - {fileID: 11400000, guid: bfdf0c6b754278f44a2a71cf0becb4ee, type: 2}
+  - {fileID: 11400000, guid: 7a74324e4a8d92f42931310fed9216bc, type: 2}
+  - {fileID: 11400000, guid: 72b2053c1a9da254ab06cf27fcb1e7e8, type: 2}
+  mergeParticle: {fileID: 5971687693222526803, guid: 754b9f77c51e9dd458a17d33aedad58c, type: 3}
+  deathParticlearticle: {fileID: 4273796035701737986, guid: f2658c905f4d42940b3dc246b7c0d249, type: 3}
+  popupText: {fileID: 3756524329521064943, guid: 5d5054a36b02ba14989ed23de48c1cdc, type: 3}
+  cameraHolder: {fileID: 0}
+  currentHighestBird: 0
+  BirdCard: {fileID: 0}
+  cardImage: {fileID: 0}
+--- !u!114 &4861356897891046626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428568815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8936e77cfa9ba674189cc8717fffce7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movSpeed: 0.3
+  timeBetweenMov: 2
+  timeBetweenClicks: 1
 --- !u!1 &1537573189
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +176,6 @@ GameObject:
   - component: {fileID: 1720526999102316331}
   - component: {fileID: 1246841803}
   - component: {fileID: 1246841804}
-  - component: {fileID: 1246841805}
   - component: {fileID: 1695538046}
   m_Layer: 0
   m_Name: GameController
@@ -125,6 +198,7 @@ Transform:
   - {fileID: 3113742927724260921}
   - {fileID: 1537573190}
   - {fileID: 3724846716047297757}
+  - {fileID: 428568816}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -191,43 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 0}
---- !u!114 &1246841805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720526999102316330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029e8feddddf92f4ea9e5fde30b76198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animals:
-  - {fileID: 2085969226133342908, guid: 3e2792968d8d73e43a2125e872531057, type: 3}
-  - {fileID: 2966653440713685353, guid: 780b5adaabbfaf54e8737a7e86087743, type: 3}
-  - {fileID: 5304692214129836483, guid: 1814e18616fcae242bf7ffcb7eea82df, type: 3}
-  - {fileID: 1551184651857627346, guid: 6780dcc9799ca2442bab31f48dd15509, type: 3}
-  - {fileID: 5274094242991525573, guid: e5e35a4dda565624e98f0f8e1e9eda0e, type: 3}
-  - {fileID: 4925886498324897676, guid: 4ca05e05a7a1ac44ba73c8ac14bc4feb, type: 3}
-  - {fileID: 8564794211717110091, guid: d25aee4bd2c772e4e9428ca34d3743ed, type: 3}
-  - {fileID: 1192457944403112447, guid: 8292b9e4041522947b8785aa5092aeaa, type: 3}
-  mergeParticle: {fileID: 5971687693222526803, guid: 754b9f77c51e9dd458a17d33aedad58c, type: 3}
-  deathParticlearticle: {fileID: 4273796035701737986, guid: f2658c905f4d42940b3dc246b7c0d249, type: 3}
-  popupText: {fileID: 3756524329521064943, guid: 5d5054a36b02ba14989ed23de48c1cdc, type: 3}
-  cameraHolder: {fileID: 0}
-  birdImages:
-  - {fileID: 21300000, guid: 7f70c0489c37ded409fecdb5df6ce3bc, type: 3}
-  - {fileID: 21300000, guid: 8cd7c96c12458da48b05598909fffcdf, type: 3}
-  - {fileID: 21300000, guid: c102b8cfeea4bbf45914439e25e358e8, type: 3}
-  - {fileID: 21300000, guid: 65fb6370581add94f80ced793026da16, type: 3}
-  - {fileID: 21300000, guid: 500d822f589a1744f844643234cda81c, type: 3}
-  - {fileID: 21300000, guid: 4ff49c6a6047cf9468c6392ca5f0a7e4, type: 3}
-  - {fileID: 21300000, guid: f07bb543cf84b274d9ec88fd07776f41, type: 3}
-  - {fileID: 21300000, guid: bba02ef94a8abff4c9dcc509c52f86fd, type: 3}
-  currentHighestBird: 0
-  BirdCard: {fileID: 0}
-  cardImage: {fileID: 0}
 --- !u!114 &1695538046
 MonoBehaviour:
   m_ObjectHideFlags: 0

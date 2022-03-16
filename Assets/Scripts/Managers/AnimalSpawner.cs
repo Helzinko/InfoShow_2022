@@ -7,7 +7,7 @@ public class AnimalSpawner : MonoBehaviour
 {
     public static AnimalSpawner instance;
 
-    [SerializeField] private List<GameObject> animals;
+    [SerializeField] private List<AnimalSO> animals;
 
     [SerializeField] public GameObject mergeParticle;
 
@@ -17,29 +17,29 @@ public class AnimalSpawner : MonoBehaviour
 
     public GameObject cameraHolder;
 
-    public Sprite[] birdImages;
     public int currentHighestBird = 0;
 
     [SerializeReference] private GameObject BirdCard;
-    [SerializeReference] private Image cardImage;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public GameObject GetAnimal(int level)
+    public AnimalSO GetAnimal(int level)
     {
         return animals[level];
     }
 
-    public void CheckRecord(int unlockedLevel)
+    public void CheckRecord(int unlockedLevel, AnimalSO animalSO)
     {
         if(currentHighestBird < unlockedLevel)
         {
             currentHighestBird = unlockedLevel;
 
-            cardImage.sprite = birdImages[currentHighestBird];
+            var card = BirdCard.GetComponent<Card>();
+            card.SetupCard(animalSO.birdImage, animalSO.level.ToString(), animalSO.cointPerSecond.ToString(), animalSO.canKillEnemy);
+
             BirdCard.SetActive(true);
 
             PauseMenu.instance.Pause();

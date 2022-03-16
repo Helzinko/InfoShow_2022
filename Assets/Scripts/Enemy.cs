@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
         if (animal)
         {
-            if(animal.AnimalLevel >= 6)
+            if(animal.CanKillEnemy())
             {
                 Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
                 BankManager.instance.AddMoney(moneyToAdd);

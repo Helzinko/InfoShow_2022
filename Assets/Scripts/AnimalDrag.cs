@@ -73,10 +73,16 @@ public class AnimalDrag : MonoBehaviour
 
             if(animal && thisAnimal)
             {
-                if (animal != thisAnimal && animal.AnimalLevel == thisAnimal.AnimalLevel)
+                if (animal != thisAnimal && animal.GetLevel() == thisAnimal.GetLevel())
                 {
-                    AnimalSpawner.instance.CheckRecord(thisAnimal.AnimalLevel);
-                    Instantiate(AnimalSpawner.instance.GetAnimal(thisAnimal.AnimalLevel++), obj.transform.position, default);
+                    var thisAnimalLevel = thisAnimal.GetLevel();
+
+                    var animalToSpawn = AnimalSpawner.instance.GetAnimal(thisAnimalLevel++);
+                    var animalPrefab = Instantiate(animalToSpawn.prefab, obj.transform.position, default);
+                    animalPrefab.GetComponent<Animal>().SetupAnimal(animalToSpawn.level, animalToSpawn.cointPerSecond, animalToSpawn.canKillEnemy);
+
+                    AnimalSpawner.instance.CheckRecord(thisAnimal.GetLevel(), animalToSpawn);
+
                     Destroy(Instantiate(AnimalSpawner.instance.mergeParticle, transform.position, default), 1f);
 
                     Destroy(obj.gameObject);

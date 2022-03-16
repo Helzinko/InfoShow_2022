@@ -1559,6 +1559,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03acba72d587f3e469f096b6e8a661d7, type: 3}
+--- !u!114 &289538741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4393772645847856989, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+  m_PrefabInstance: {fileID: 3280677149300439989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &351038247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4496,17 +4507,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3280677149752528585, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
   m_PrefabInstance: {fileID: 3280677149300439989}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &799210082 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3280677149747036631, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
-  m_PrefabInstance: {fileID: 3280677149300439989}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &805142934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12598,6 +12598,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 428568817, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: BirdCard
+      value: 
+      objectReference: {fileID: 796308860}
+    - target: {fileID: 428568817, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: cardImage
+      value: 
+      objectReference: {fileID: 1171692249}
+    - target: {fileID: 428568817, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: cameraHolder
+      value: 
+      objectReference: {fileID: 139289016}
     - target: {fileID: 1246841803, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: RandomTip
       value: 
@@ -12614,18 +12626,6 @@ PrefabInstance:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 2001960401}
-    - target: {fileID: 1246841805, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: BirdCard
-      value: 
-      objectReference: {fileID: 796308860}
-    - target: {fileID: 1246841805, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: cardImage
-      value: 
-      objectReference: {fileID: 1171692249}
-    - target: {fileID: 1246841805, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
-      propertyPath: cameraHolder
-      value: 
-      objectReference: {fileID: 139289016}
     - target: {fileID: 1695538046, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: gameplayUI
       value: 
@@ -12682,6 +12682,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4861356897891046626, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: timeBetweenClicks
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
 --- !u!1001 &3280677149300439989
@@ -12694,7 +12698,7 @@ PrefabInstance:
     - target: {fileID: 1503126802679443010, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 799210082}
+      objectReference: {fileID: 289538741}
     - target: {fileID: 1503126802679443010, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -12830,6 +12834,18 @@ PrefabInstance:
     - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: ObjectSO, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149752528584, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149752528584, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149752528585, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}

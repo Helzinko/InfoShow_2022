@@ -15,7 +15,11 @@ public class Box : MonoBehaviour
         SoundManager.instance.PlayEffect(GameType.SoundTypes.box_open);
 
         Destroy(Instantiate(openParticle, transform.position, default), 1f);
-        Instantiate(AnimalSpawner.instance.GetAnimal(GameManager.instance.currentBoxLevel), new Vector3(3, 0.62f, 3), default);
+
+        var animalToSpawn = AnimalSpawner.instance.GetAnimal(GameManager.instance.currentBoxLevel);
+        var animalPrefab = Instantiate(animalToSpawn.prefab, new Vector3(3, 0.62f, 3), default);
+        animalPrefab.GetComponent<Animal>().SetupAnimal(animalToSpawn.level, animalToSpawn.cointPerSecond, animalToSpawn.canKillEnemy);
+
         GameManager.instance.canSpawnBox = true;
         Destroy(gameObject);
     }
