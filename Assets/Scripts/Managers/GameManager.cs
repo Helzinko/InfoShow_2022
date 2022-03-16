@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public bool playerLost = false;
 
+    public GameObject popupText;
+
     private void Awake()
     {
         instance = this;
@@ -76,6 +78,8 @@ public class GameManager : MonoBehaviour
         {
             currentBoxLevel++;
             BankManager.instance.RemoveMoney(BankManager.Prices.boxUpradePrice);
+
+            //ShowPopupTextForBuying(BankManager.Prices.boxUpradePrice);
         }
         else
         {

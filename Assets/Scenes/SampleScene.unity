@@ -12619,6 +12619,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 145642525}
     - target: {fileID: 1246841803, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: popupText
+      value: 
+      objectReference: {fileID: 3756524329521064943, guid: 5d5054a36b02ba14989ed23de48c1cdc, type: 3}
+    - target: {fileID: 1246841803, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: gameOverText
       value: 
       objectReference: {fileID: 461327827}

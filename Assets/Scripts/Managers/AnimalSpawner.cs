@@ -13,8 +13,6 @@ public class AnimalSpawner : MonoBehaviour
 
     [SerializeField] public GameObject deathParticlearticle;
 
-    public GameObject popupText;
-
     public GameObject cameraHolder;
 
     public int currentHighestBird = 0;

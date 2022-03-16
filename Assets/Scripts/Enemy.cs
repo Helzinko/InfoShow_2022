@@ -25,6 +25,11 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
                 BankManager.instance.AddMoney(moneyToAdd);
+                SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
+
+                GameObject floatingText = Instantiate(GameManager.instance.popupText, transform.position, Quaternion.identity);
+                floatingText.GetComponent<PopupText>().displayText = "+" + moneyToAdd;
+
                 Destroy(gameObject);
             }
             else

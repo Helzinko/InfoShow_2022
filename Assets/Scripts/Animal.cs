@@ -130,7 +130,7 @@ public class Animal : MonoBehaviour
 
     private void ShowPopupText()
     {
-        GameObject floatingText = Instantiate(AnimalSpawner.instance.popupText, transform.position, Quaternion.identity);
+        GameObject floatingText = Instantiate(GameManager.instance.popupText, transform.position, Quaternion.identity);
         floatingText.GetComponent<PopupText>().displayText = "+" + coinsPerSecond;
     }
 
