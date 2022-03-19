@@ -5839,7 +5839,7 @@ Camera:
   far clip plane: 1000
   field of view: 61.4
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -12607,6 +12607,10 @@ PrefabInstance:
       propertyPath: gameOverText
       value: 
       objectReference: {fileID: 461327827}
+    - target: {fileID: 1246841803, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 1246841804, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: moneyText
       value: 

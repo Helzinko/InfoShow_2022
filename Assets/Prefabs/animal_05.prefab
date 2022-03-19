@@ -110,11 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c093c2b8e94f549bb6a8bff93c687d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 0.3
-  timeBetweenMov: 2
-  moneyValue: 5
-  timeBetweenClicks: 0.3
-  AnimalLevel: 5
 --- !u!114 &8385268090132333033
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -73,7 +73,6 @@ MonoBehaviour:
   z: 0
   cubeType: 0
   placingIndicator: {fileID: 8800745074500412998}
-  isFull: 0
 --- !u!1 &1853377570542394016
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +84,7 @@ GameObject:
   - component: {fileID: 1853377570542394017}
   - component: {fileID: 1853377570542394019}
   - component: {fileID: 1853377570542394018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

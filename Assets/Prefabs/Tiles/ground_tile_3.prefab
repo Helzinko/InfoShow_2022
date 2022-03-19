@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 839621198160454871}
   - component: {fileID: 839621198160454869}
   - component: {fileID: 839621198160454868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,6 @@ MonoBehaviour:
   z: 0
   cubeType: 0
   placingIndicator: {fileID: 7511138961666562096}
-  isFull: 0
 --- !u!1 &3867817834982163194
 GameObject:
   m_ObjectHideFlags: 0
