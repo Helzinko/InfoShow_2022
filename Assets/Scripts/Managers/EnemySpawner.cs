@@ -22,6 +22,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    var enemy = Instantiate(enemyPrefab, new Vector3(20, 0.5f, 2), default);
+        //    var direction = -Vector3.right;
+        //    enemy.GetComponent<Enemy>().Move(direction);
+        //    enemy.transform.LookAt(new Vector3(1, 0, enemy.transform.position.z));
+        //}
+
         if (spawnTime < 4)
             return;
 

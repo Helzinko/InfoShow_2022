@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
 {
-    public int x;
-    public int z;
-    public Grid.CubeTypes cubeType;
+    [HideInInspector] public int x;
+    [HideInInspector] public int z;
+    [HideInInspector] public Grid.CubeTypes cubeType;
 
     public void SetValues(int x, int z, Grid.CubeTypes cubeType)
     {

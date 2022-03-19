@@ -6,8 +6,6 @@ public class LandCube : Cube
 {
     public GameObject placingIndicator;
 
-    public bool isFull = false;
-
     private void Start()
     {
         ShowPlacingIndication(false);

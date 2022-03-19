@@ -33,7 +33,7 @@ public class EmptyCube : Cube
         {
             if (Grid.instance.GetNeighbors(x, z).Count > 0)
             {
-                Grid.instance.ReplaceCube(x, z);
+                Grid.instance.ReplaceCube(x, z, Grid.instance.GetRandomLand());
                 SoundManager.instance.PlayEffect(GameType.SoundTypes.place_land);
                 GameManager.instance.StartPlacingLand();
             }

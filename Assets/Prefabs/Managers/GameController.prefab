@@ -54,11 +54,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 72b2053c1a9da254ab06cf27fcb1e7e8, type: 2}
   mergeParticle: {fileID: 5971687693222526803, guid: 754b9f77c51e9dd458a17d33aedad58c, type: 3}
   deathParticlearticle: {fileID: 4273796035701737986, guid: f2658c905f4d42940b3dc246b7c0d249, type: 3}
-  popupText: {fileID: 3756524329521064943, guid: 5d5054a36b02ba14989ed23de48c1cdc, type: 3}
   cameraHolder: {fileID: 0}
   currentHighestBird: 0
   BirdCard: {fileID: 0}
-  cardImage: {fileID: 0}
 --- !u!114 &4861356897891046626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movSpeed: 0.3
   timeBetweenMov: 2
-  timeBetweenClicks: 1
+  timeBetweenClicks: 0.25
 --- !u!1 &1537573189
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,9 +214,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyCube: {fileID: 3079785493430408282, guid: 4613232b1f8cb0442b4e5fe37d653e1a, type: 3}
   landCubes:
-  - {fileID: 1993035289537697152, guid: 02bff199aa634d348809f7a5f91ce9e3, type: 3}
-  - {fileID: 3758412092424673535, guid: c2216f2bfca9ea84781539beca81f578, type: 3}
-  - {fileID: 417463359841661607, guid: 9067c21fd8528b04d801fb4bb62a848c, type: 3}
+  - {fileID: 148665095623979376, guid: f4cd0db5b47e81e499475ea17ed9ca30, type: 3}
+  - {fileID: 2649610851231811205, guid: ee346bff93105f24096c5bb06470227c, type: 3}
+  - {fileID: 1156932586238136070, guid: e5796f2cc1f865e43b6f8aca27cd3354, type: 3}
+  - {fileID: 1834666337105469936, guid: 78a271fc363adfe4c811f884699b553d, type: 3}
+  - {fileID: 4525515971497785517, guid: 28380bdf8d6f7a3418fc9c5796752bf6, type: 3}
   decCube: {fileID: 0}
   animalSpawnPlace: {fileID: 0}
   gridXLenght: 7
@@ -250,6 +250,7 @@ MonoBehaviour:
   gameOverText: {fileID: 0}
   currentBoxLevel: 0
   playerLost: 0
+  popupText: {fileID: 3756524329521064943, guid: 5d5054a36b02ba14989ed23de48c1cdc, type: 3}
   StartText: {fileID: 0}
   RandomTip: {fileID: 0}
 --- !u!114 &1246841804

@@ -85,13 +85,15 @@ public class Grid : MonoBehaviour
         return results;
     }
 
-    public void ReplaceCube(int x, int z)
+    public void ReplaceCube(int x, int z, GameObject tile)
     {
         Destroy(LevelGrid[x, z].gameObject);
-        var cubeObj = Instantiate(GetRandomLand(), new Vector3(x, 0, z), default);
+        var cubeObj = Instantiate(tile, new Vector3(x, 0, z), default);
         var cube = cubeObj.GetComponent<Cube>();
         cube.SetValues(x, z, CubeTypes.land);
         LevelGrid[x, z] = cube;
+
+        Destroy(Instantiate(ObjectManager.instance.placingParticle, new Vector3(x, 1, z), default), 1f);
 
         BankManager.instance.RemoveMoney(BankManager.Prices.landPrice);
     }
@@ -110,8 +112,7 @@ public class Grid : MonoBehaviour
                 var landCube = LevelGrid[x, z].GetComponent<LandCube>();
                 if (landCube)
                 {
-                    if(!landCube.isFull)
-                        landCube.ShowPlacingIndication(active);
+                    landCube.ShowPlacingIndication(active);
                 }
             }
         }

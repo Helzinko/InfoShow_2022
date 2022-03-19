@@ -21,25 +21,25 @@ public class Enemy : MonoBehaviour
 
         if (animal)
         {
-            if(animal.CanKillEnemy())
+            if (animal.CanKillEnemy())
             {
-                Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
-                BankManager.instance.AddMoney(moneyToAdd);
-                SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
-
-                GameObject floatingText = Instantiate(GameManager.instance.popupText, transform.position, Quaternion.identity);
-                floatingText.GetComponent<PopupText>().displayText = "+" + moneyToAdd;
-
-                Destroy(gameObject);
+                Kill();
             }
             else
             {
-                GameManager.instance.CheckBirdCount(1);
-                Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, animal.gameObject.transform.position, default), 1f);
-                SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
-                Destroy(animal.gameObject);
-            } 
+                animal.Kill();
+            }
         }
+        else
+        {
+            var trap = other.GetComponent<Trap>();
+
+            if (trap)
+            {
+                trap.PlayTrap();
+            }
+        }
+
     }
 
     public void Move(Vector3 direction)
@@ -56,5 +56,17 @@ public class Enemy : MonoBehaviour
         if (!canMove) return;
 
         transform.position += moveDir * enemySpeed * Time.deltaTime;
+    }
+
+    public void Kill()
+    {
+        Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
+        BankManager.instance.AddMoney(moneyToAdd);
+        SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
+
+        GameObject floatingText = Instantiate(GameManager.instance.popupText, transform.position, Quaternion.identity);
+        floatingText.GetComponent<PopupText>().displayText = "+" + moneyToAdd;
+
+        Destroy(gameObject);
     }
 }

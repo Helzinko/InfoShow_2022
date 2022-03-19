@@ -10,6 +10,8 @@ public class ObjectManager : MonoBehaviour
 
     private ObjectSO objectForPlacemenet;
 
+    public GameObject placingParticle;
+
     private void Awake()
     {
         instance = this;
@@ -44,11 +46,12 @@ public class ObjectManager : MonoBehaviour
         if (BankManager.instance.CanBuyObject(objectForPlacemenet.price))
         {
             BankManager.instance.RemoveMoney(objectForPlacemenet.price);
-            landCube.GetComponent<LandCube>().isFull = true;
 
-            var spawningPointY = landCube.transform.position.y + (landCube.transform.lossyScale.y / 2) + (objectForPlacemenet.prefab.transform.lossyScale.y / 2);
+            var previousTilePosition = landCube.GetComponent<LandCube>().transform.position;
+            Grid.instance.ReplaceCube((int)previousTilePosition.x, (int)previousTilePosition.z, objectForPlacemenet.prefab);
 
-            var placedObject = Instantiate(objectForPlacemenet.prefab, new Vector3(landCube.transform.position.x, spawningPointY, landCube.transform.position.z), default);
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.place_land);
+            Destroy(Instantiate(placingParticle, new Vector3(previousTilePosition.x, 1, previousTilePosition.z), default), 1f);
         }
         else
         {

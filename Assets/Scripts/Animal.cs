@@ -150,4 +150,12 @@ public class Animal : MonoBehaviour
         this.coinsPerSecond = coinsPerSecond;
         this.canKillEnemy = canKillEnemy;
     }
+
+    public void Kill()
+    {
+        GameManager.instance.CheckBirdCount(1);
+        Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, gameObject.transform.position, default), 1f);
+        SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
+        Destroy(gameObject);
+    }
 }

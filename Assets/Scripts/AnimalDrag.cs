@@ -50,10 +50,7 @@ public class AnimalDrag : MonoBehaviour
 
         if (!IsGrounded())
         {
-            GameManager.instance.CheckBirdCount(1);
-            Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, transform.position, default), 1f);
-            SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
-            Destroy(gameObject);
+            GetComponent<Animal>().Kill();
         }
     }
 
