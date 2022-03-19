@@ -45,12 +45,14 @@ public class GameManager : MonoBehaviour
         if (isPlacingLand)
         {
             isPlacingLand = !isPlacingLand;
+            Grid.instance.ToggleTilePlacingIndicators();
         }
         else
         {
             if (BankManager.instance.CanBuyLand() && !ObjectManager.instance.isPlacingObject)
             {
                 isPlacingLand = !isPlacingLand;
+                Grid.instance.ToggleTilePlacingIndicators();
             }
             else
             {

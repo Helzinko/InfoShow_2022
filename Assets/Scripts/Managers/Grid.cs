@@ -8,9 +8,6 @@ public class Grid : MonoBehaviour
 
     [SerializeField] private GameObject emptyCube;
     [SerializeField] private GameObject[] landCubes;
-    [SerializeField] private GameObject decCube;
-
-    public Transform animalSpawnPlace;
 
     public enum CubeTypes
     {
@@ -78,7 +75,6 @@ public class Grid : MonoBehaviour
                     if(!(LevelGrid[row, col].x != cellRow && LevelGrid[row, col].z != cellCol))
                         results.Add(LevelGrid[row, col]);
                 }
-
             }
         }
 
@@ -113,6 +109,21 @@ public class Grid : MonoBehaviour
                 if (landCube)
                 {
                     landCube.ShowPlacingIndication(active);
+                }
+            }
+        }
+    }
+
+    public void ToggleTilePlacingIndicators()
+    {
+        for (int x = 0; x < gridXLenght; x++)
+        {
+            for (int z = 0; z < gridZLenght; z++)
+            {
+                var emptyCube = LevelGrid[x, z].GetComponent<EmptyCube>();
+                if (emptyCube)
+                {
+                    emptyCube.TogglePlacingIndication();
                 }
             }
         }

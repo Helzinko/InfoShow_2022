@@ -4,39 +4,43 @@ using UnityEngine;
 
 public class EmptyCube : Cube
 {
-    private MeshRenderer rend;
-
+    [SerializeField] private MeshRenderer rend;
     private Cube cube;
+
+    [SerializeField] private Color baseColor;
+    [SerializeField] private Color mouseOverColor;
 
     // Start is called before the first frame update
     void Start()
     {
         cube = GetComponent<Cube>();
-        rend = GetComponent<MeshRenderer>();
-        rend.enabled = false;
+        TogglePlacingIndication();
+        rend.material.color = baseColor;
     }
 
     private void OnMouseOver()
     {
-        if(GameManager.instance.isPlacingLand)
-            rend.enabled = true;
+        rend.material.color = mouseOverColor;
     }
 
     private void OnMouseExit()
     {
-        rend.enabled = false;
+        rend.material.color = baseColor;
     }
 
     private void OnMouseDown()
     {
         if (GameManager.instance.isPlacingLand)
         {
-            if (Grid.instance.GetNeighbors(x, z).Count > 0)
-            {
-                Grid.instance.ReplaceCube(x, z, Grid.instance.GetRandomLand());
-                SoundManager.instance.PlayEffect(GameType.SoundTypes.place_land);
-                GameManager.instance.StartPlacingLand();
-            }
+            Grid.instance.ReplaceCube(x, z, Grid.instance.GetRandomLand());
+            SoundManager.instance.PlayEffect(GameType.SoundTypes.place_land);
+            GameManager.instance.StartPlacingLand();
         }
+    }
+
+    public void TogglePlacingIndication()
+    {
+        rend.material.color = baseColor;
+        rend.enabled = GameManager.instance.isPlacingLand;
     }
 }
