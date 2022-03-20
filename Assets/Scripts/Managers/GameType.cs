@@ -22,5 +22,6 @@ public class GameType : MonoBehaviour
     public enum ObjectType
     {                                                                                                                       
         trap = 0,
+        grass = 1,
     }
 }

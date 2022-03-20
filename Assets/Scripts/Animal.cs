@@ -100,9 +100,10 @@ public class Animal : MonoBehaviour
         {
             if(timeSinceLastClick > AnimalManager.instance.timeBetweenClicks)
             {
-                BankManager.instance.AddMoney(coinsPerSecond);
                 StartCoroutine(ClickedAnimation());
-                ShowPopupText();
+                var currentMoneyPerSec = CheckStandingTile();
+                BankManager.instance.AddMoney(currentMoneyPerSec);
+                ShowPopupText(currentMoneyPerSec);
                 timeSinceLastClick = 0;
                 SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_punch);
             }
@@ -122,16 +123,17 @@ public class Animal : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            BankManager.instance.AddMoney(coinsPerSecond);
-
-            ShowPopupText();
+            CheckStandingTile();
+            var currentMoneyPerSec = CheckStandingTile();
+            BankManager.instance.AddMoney(currentMoneyPerSec);
+            ShowPopupText(currentMoneyPerSec);
         }
     }
 
-    private void ShowPopupText()
+    private void ShowPopupText(int count)
     {
         GameObject floatingText = Instantiate(GameManager.instance.popupText, transform.position, Quaternion.identity);
-        floatingText.GetComponent<PopupText>().displayText = "+" + coinsPerSecond;
+        floatingText.GetComponent<PopupText>().displayText = "+" + count;
     }
 
     public int GetLevel()
@@ -157,5 +159,21 @@ public class Animal : MonoBehaviour
         Destroy(Instantiate(AnimalSpawner.instance.deathParticlearticle, gameObject.transform.position, default), 1f);
         SoundManager.instance.PlayEffect(GameType.SoundTypes.bird_hurt);
         Destroy(gameObject);
+    }
+
+    private int CheckStandingTile()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+        {
+            var grassTile = hit.transform.GetComponent<GrassTile>();
+
+            if (grassTile)
+            {
+                return coinsPerSecond * grassTile.moneyMultiply;
+            }
+        }
+
+        return coinsPerSecond;
     }
 }
