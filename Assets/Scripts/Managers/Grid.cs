@@ -19,7 +19,7 @@ public class Grid : MonoBehaviour
     [SerializeField] public int gridXLenght = 7;
     [SerializeField] public int gridZLenght = 7;
 
-    public int centerCoord;
+    public Vector2 centerCoord;
 
     public Cube[,] LevelGrid;
 
@@ -27,15 +27,13 @@ public class Grid : MonoBehaviour
     {
         instance = this;
 
-        centerCoord = (((gridXLenght + gridZLenght) / 2) - 1) / 2;
-
         LevelGrid = new Cube[gridXLenght, gridZLenght];
 
         for (int x = 0; x < gridXLenght; x++)
         {
             for (int z = 0; z < gridZLenght; z++)
             {
-                if (x == centerCoord && z == centerCoord)
+                if (x == centerCoord.x && z == centerCoord.y)
                 {
                     CreateCube(x, z, CubeTypes.land, GetRandomLand());
                 }
