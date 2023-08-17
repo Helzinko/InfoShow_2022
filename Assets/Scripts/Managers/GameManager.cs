@@ -99,10 +99,9 @@ public class GameManager : MonoBehaviour
 
     private void SpawnAnimal()
     {
-        var spawnPos = new Vector3(Grid.instance.centerCoord.x, 0.5f, Grid.instance.centerCoord.y);
-
-        Instantiate(boxToSpawn, spawnPos, default);
-        Destroy(Instantiate(boxSpawnParticle, spawnPos, default), 1f);
+        // debug coords
+        Instantiate(boxToSpawn, new Vector3(3, 0.5f, 3), default);
+        Destroy(Instantiate(boxSpawnParticle, new Vector3(3, 0.5f, 3), default), 1f);
         SoundManager.instance.PlayEffect(GameType.SoundTypes.box_buy);
         canSpawnBox = false;
     }

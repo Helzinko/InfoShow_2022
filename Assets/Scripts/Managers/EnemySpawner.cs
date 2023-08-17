@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
 
             var currentSpawn = spawns[Random.Range(0, spawns.Length)];
             var enemy = Instantiate(enemyPrefab, currentSpawn.transform.position, default);
-            float randomAddjust = Random.Range(-3, 3);
+            float randomAddjust = Random.Range(-Grid.instance.centerCoord, Grid.instance.centerCoord);
 
             Vector3 direction;
 
