@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using QFSW.QC;
 
 
 public class BankManager : MonoBehaviour
@@ -29,12 +30,14 @@ public class BankManager : MonoBehaviour
         UpdateMoneyText();
     }
 
+    [Command]
     public void AddMoney(int ammount)
     {
         currentMoney += ammount;
         UpdateMoneyText();
     }
 
+    [Command]
     public void RemoveMoney(int ammount)
     {
         if(ammount <= currentMoney)
