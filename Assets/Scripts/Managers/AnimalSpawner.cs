@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class AnimalSpawner : MonoBehaviour
 {
+    [SerializeField] private Animal animal;
+
     public static AnimalSpawner instance;
 
-    [SerializeField] private List<AnimalSO> animals;
+    //[SerializeField] private List<AnimalSO> animals;
 
     [SerializeField] public GameObject mergeParticle;
 
@@ -24,9 +26,9 @@ public class AnimalSpawner : MonoBehaviour
         instance = this;
     }
 
-    public AnimalSO GetAnimal(int level)
+    public Animal GetAnimal()
     {
-        return animals[level];
+        return animal;
     }
 
     public void CheckRecord(int unlockedLevel, AnimalSO animalSO)

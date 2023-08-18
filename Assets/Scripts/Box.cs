@@ -16,9 +16,9 @@ public class Box : MonoBehaviour
 
         Destroy(Instantiate(openParticle, transform.position, default), 1f);
 
-        var animalToSpawn = AnimalSpawner.instance.GetAnimal(GameManager.instance.currentBoxLevel);
-        var animalPrefab = Instantiate(animalToSpawn.prefab, new Vector3(3, 0.62f, 3), default);
-        animalPrefab.GetComponent<Animal>().SetupAnimal(animalToSpawn.level, animalToSpawn.cointPerSecond, animalToSpawn.canKillEnemy);
+        var animalToSpawn = AnimalSpawner.instance.GetAnimal();
+        var animalPrefab = Instantiate(animalToSpawn, new Vector3(3, 0.5f, 3), default);
+        animalPrefab.GetComponent<Animal>().SetupAnimal(1, 1, false);
 
         GameManager.instance.canSpawnBox = true;
         Destroy(gameObject);

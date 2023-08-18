@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstBox)
         {
-            EnemySpawner.instance.StartSpawning();
+            //EnemySpawner.instance.StartSpawning();
             StartText.SetActive(false);
             RandomTip.SetActive(false);
             firstBox = false;

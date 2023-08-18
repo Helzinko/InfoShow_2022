@@ -113,7 +113,7 @@ public class Animal : MonoBehaviour
     private float animTime = 0.1f;
     IEnumerator ClickedAnimation()
     {
-        transform.DOScale(originalSize * 2, animTime);
+        transform.DOScale(originalSize * 1.5f, animTime);
         yield return new WaitForSeconds(animTime);
         transform.DOScale(originalSize, animTime);
     }

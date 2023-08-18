@@ -1105,7 +1105,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8519328, b: 0.4481132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1151,7 +1151,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -1.03358285e-20, z: 4.5905e-41, w: 1e-45}
+  m_BoundingSphereOverride: {x: 3.21e-43, y: 9e-44, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -1164,7 +1164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 1.9, y: 7.53, z: -3.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3390,6 +3390,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224130951485110974, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224130951485110974, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -3847,7 +3851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2118959072
 Transform:
   m_ObjectHideFlags: 0
@@ -3911,6 +3915,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 428568817, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: animal
+      value: 
+      objectReference: {fileID: 8661878173028041543, guid: 107b5d13f63bdc84fbfa8804fba76065, type: 3}
+    - target: {fileID: 428568817, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: BirdCard
       value: 
       objectReference: {fileID: 796308860}
@@ -3918,6 +3926,10 @@ PrefabInstance:
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 139289016}
+    - target: {fileID: 428568817, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
+      propertyPath: animals.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1246841803, guid: 3e0673dea201ef240b5a55dd40ddd56a, type: 3}
       propertyPath: RandomTip
       value: 
@@ -4115,6 +4127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3280677149084858511, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 247
+      objectReference: {fileID: 0}
     - target: {fileID: 3280677149239219010, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4154,6 +4170,30 @@ PrefabInstance:
     - target: {fileID: 3280677149747036628, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677149897409972, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677150069792740, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677150069792740, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677150069792740, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 81.11755
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677150069792740, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -143
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280677150069792743, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4319241299750118788, guid: a7b9829d7127f7b43bc4371ae9d9b722, type: 3}
       propertyPath: m_Color.a
